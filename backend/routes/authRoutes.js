@@ -171,9 +171,25 @@ router.post("/google-signup", async (req, res) => {
     let user = await User.findOne({ email });
 
     if (user) {
-      // Update Google ID if not set
+      // Keep Google-linked profile details up to date.
+      let userChanged = false;
+
       if (!user.googleId) {
         user.googleId = googleId;
+        userChanged = true;
+      }
+
+      if (picture && user.avatar !== picture) {
+        user.avatar = picture;
+        userChanged = true;
+      }
+
+      if (name && !user.fullName) {
+        user.fullName = name;
+        userChanged = true;
+      }
+
+      if (userChanged) {
         await user.save();
       }
     } else {

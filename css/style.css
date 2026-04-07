@@ -55,19 +55,40 @@ a {
 .nav-links {
   display: flex;
   gap: 2rem;
+
 }
 
 .nav-links a {
   font-weight: 500;
   font-size: 1rem;
-  color: #222;
+  color: #000000;
   /* Default text color */
   transition: color 0.3s ease;
+
 }
 
 .nav-links a:hover {
-  color: #e63946;
+  color: #f3eff0;
+  border-radius: 5px;
+  border: solid  white 2px;
+  scale: 20px;
+  padding: 5px;
+  font-style: bold;
   /* Red color on hover */
+}
+
+.user-welcome-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #e7e7e7;
 }
 
 
@@ -118,6 +139,11 @@ a {
   color: #e63946;
 }
 
+.mobile-sidebar .user-welcome-link {
+  display: inline-flex;
+  align-items: center;
+}
+
 /* Show sidebar */
 .mobile-sidebar.show {
   right: 0;
@@ -154,6 +180,7 @@ a {
     padding: 3rem 2rem;
   }
 }
+
 
 .site-footer {
   background-color: #1a1a1a;
